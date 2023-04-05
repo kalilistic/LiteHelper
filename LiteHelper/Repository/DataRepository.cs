@@ -4,7 +4,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
 
-namespace LiteHelper;
+using LiteHelper.Context;
+using LiteHelper.Model;
+
+namespace LiteHelper.Repository;
 
 /// <summary>
 /// Service class for methods backed by databaseContext.

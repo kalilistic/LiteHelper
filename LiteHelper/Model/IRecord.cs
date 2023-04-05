@@ -1,4 +1,4 @@
-﻿namespace LiteHelper;
+﻿namespace LiteHelper.Model;
 
 /// <summary>
 /// Data Service Type to use with Data Service.

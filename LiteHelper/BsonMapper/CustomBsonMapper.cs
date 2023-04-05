@@ -2,8 +2,9 @@
 using System.Numerics;
 
 using LiteDB;
+using LiteHelper.Attribute;
 
-namespace LiteHelper;
+namespace LiteHelper.BsonMapper;
 
 /// <summary>
 /// Create custom bson mapper with defaults and additional registered types.
@@ -14,9 +15,9 @@ public static class CustomBsonMapper
     /// Create an instance of bson mapper.
     /// </summary>
     /// <returns>instance of bson mapper.</returns>
-    public static BsonMapper Create()
+    public static LiteDB.BsonMapper Create()
     {
-        var bsonMapper = new BsonMapper
+        var bsonMapper = new LiteDB.BsonMapper
         {
             IncludeFields = true,
             EmptyStringToNull = false,
@@ -55,7 +56,7 @@ public static class CustomBsonMapper
 
     private static string ResolveCollectionName(Type t)
     {
-        var attr = (BsonCollectionAttribute?)Attribute.GetCustomAttribute(t, typeof(BsonCollectionAttribute));
+        var attr = (BsonCollectionAttribute?)System.Attribute.GetCustomAttribute(t, typeof(BsonCollectionAttribute));
         return attr == null ? t.Name : attr.Name;
     }
 

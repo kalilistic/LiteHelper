@@ -2,7 +2,9 @@
 using System.Collections.Generic;
 using System.Linq.Expressions;
 
-namespace LiteHelper;
+using LiteHelper.Model;
+
+namespace LiteHelper.Repository;
 
 /// <summary>
 /// Data Repository.

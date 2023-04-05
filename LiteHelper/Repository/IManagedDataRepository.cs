@@ -1,4 +1,4 @@
-﻿namespace LiteHelper;
+﻿namespace LiteHelper.Repository;
 
 /// <summary>
 /// DataRepository to managed by RepositoryManager.

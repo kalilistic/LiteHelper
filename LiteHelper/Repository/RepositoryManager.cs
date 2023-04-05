@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace LiteHelper;
+namespace LiteHelper.Repository;
 
 /// <summary>
 /// Repository Manager to handle global functions across individual repos.

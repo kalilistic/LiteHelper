@@ -1,12 +1,12 @@
 ﻿using System;
 
-namespace LiteHelper;
+namespace LiteHelper.Attribute;
 
 /// <summary>
 /// Set a name to use for the bson document collection.
 /// </summary>
 [AttributeUsage(AttributeTargets.Class)]
-public class BsonCollectionAttribute : Attribute
+public class BsonCollectionAttribute : System.Attribute
 {
     /// <summary>
     /// Initializes a new instance of the <see cref="BsonCollectionAttribute"/> class.

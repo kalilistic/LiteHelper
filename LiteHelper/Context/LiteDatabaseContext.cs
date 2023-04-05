@@ -5,8 +5,10 @@ using System.Linq;
 using System.Linq.Expressions;
 
 using LiteDB;
+using LiteHelper.BsonMapper;
+using LiteHelper.Exception;
 
-namespace LiteHelper;
+namespace LiteHelper.Context;
 
 /// <inheritdoc />
 public class LiteDatabaseContext : IDatabaseContext
@@ -179,7 +181,7 @@ public class LiteDatabaseContext : IDatabaseContext
 
             using Stream stream = new FileStream(fileName, FileMode.Open, FileAccess.ReadWrite, FileShare.None);
         }
-        catch (Exception ex)
+        catch (System.Exception ex)
         {
             throw new DatabaseAccessException($"Can't access {fileName}", ex);
         }

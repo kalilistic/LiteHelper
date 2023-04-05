@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq.Expressions;
 
-namespace LiteHelper;
+namespace LiteHelper.Context;
 
 /// <summary>
 /// Context to persist data.
