@@ -56,8 +56,8 @@ public static class CustomBsonMapper
 
     private static string ResolveCollectionName(Type t)
     {
-        var attr = (BsonCollectionAttribute?)System.Attribute.GetCustomAttribute(t, typeof(BsonCollectionAttribute));
-        return attr == null ? t.Name : attr.Name;
+        var attr = System.Attribute.GetCustomAttribute(t, typeof(BsonCollectionAttribute)) as BsonCollectionAttribute;
+        return attr?.Name ?? t.Name;
     }
 
     private static string ResolveFieldName(string name)
