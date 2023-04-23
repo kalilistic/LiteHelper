@@ -170,6 +170,21 @@ public class LiteDatabaseContext : IDatabaseContext
         this.database.Dispose();
     }
 
+    /// <summary>
+    /// Get collection.
+    /// </summary>
+    /// <param name="name">lite db collection.</param>
+    /// <returns>bson collection.</returns>
+    public ILiteCollection<BsonDocument>? GetCollection(string name)
+    {
+        if (this.database.CollectionExists(name))
+        {
+            return this.database.GetCollection<BsonDocument>(name);
+        }
+
+        return null;
+    }
+
     private static void VerifyDatabaseAccess(string fileName)
     {
         try
