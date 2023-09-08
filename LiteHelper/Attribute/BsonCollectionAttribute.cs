@@ -15,7 +15,7 @@ public class BsonCollectionAttribute : System.Attribute
     public BsonCollectionAttribute(string name) => this.Name = name;
 
     /// <summary>
-    /// Gets or sets collection name.
+    /// Gets collection name.
     /// </summary>
-    public string Name { get; set; }
+    public string Name { get; }
 }

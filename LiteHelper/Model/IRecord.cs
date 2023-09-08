@@ -6,9 +6,9 @@
 public interface IRecord
 {
     /// <summary>
-    /// Gets or sets iD of instance.
+    /// Gets iD of instance.
     /// </summary>
-    public int Id { get; set; }
+    public int Id { get; }
 
     /// <summary>
     /// Gets or sets created date.

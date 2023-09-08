@@ -3,25 +3,25 @@
 
 A small helper library to use with [LiteDB](https://github.com/mbdavid/LiteDB).
 
-### Features
+## Features
 - Provide BsonCollectionAttribute to get and set collection names
 - Provide CustomBsonMapper with sensible defaults and support for more data types
-- Provide data repository pattern to abstract from LiteDB
-- Provide queue system to register and apply changes
+- Provide BsonDocumentExtensions for dynamic key and value retrieval
+- Provide Factory pattern for easier building of LiteDB instances
+- Provide Record with comparer for easier implementation of persistence
 
-### Example
+## Example
 
 ```csharp
-// initialize instance
-var context = new LiteDatabaseContext("D:\databaseDir");
-
-// create collection
-context.CreateCollection<Player>();
-
-// add document
-var player = new Player();
-context.InsertItem(player);
-
-// retrieve document using LINQ
-context.GetItem<Player>(p => p.Id == 1);
+using var dbFactory = new LiteDatabaseFactory("D:\databaseDir", "db", "direct");
+ILiteCollection<BsonDocument> collection = dbFactory.Database.GetCollection("MyCollection");
+if (collection != null)
+{
+    var documents = collection.FindAll().ToList();
+    if (documents.Count > 0)
+    {
+        var document = documents.First();
+        var name = document.GetValueOrDefault<string>("Name");
+    }
+}
 ```

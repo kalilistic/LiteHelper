@@ -50,7 +50,7 @@ public static class CustomBsonMapper
                 };
                 return doc;
             },
-            (doc) => new Vector3((float)doc[0].AsDouble, (float)doc[1].AsDouble, (float)doc[2].AsDouble));
+            doc => new Vector3((float)doc[0].AsDouble, (float)doc[1].AsDouble, (float)doc[2].AsDouble));
         return bsonMapper;
     }
 
@@ -60,8 +60,5 @@ public static class CustomBsonMapper
         return attr?.Name ?? t.Name;
     }
 
-    private static string ResolveFieldName(string name)
-    {
-        return char.ToLower(name[0]) + name[1..];
-    }
+    private static string ResolveFieldName(string name) => char.ToLower(name[0]) + name[1..];
 }
